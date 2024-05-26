@@ -24,7 +24,9 @@ function sendData(event) {
   event.preventDefault();
 
   const { email, message } = form.elements;
-  if (email.value === '' || message.value === '') {
+  const trimEmail = email.value.trim();
+  const trimMessage = message.value.trim();
+  if (trimEmail.value === '' || trimMessage.value === '') {
     alert('Fill please all fields');
     return;
   }
