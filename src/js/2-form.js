@@ -7,8 +7,8 @@ returnInput();
 
 function handleInput(event) {
   const key = event.target.name;
-  const trimValue = event.target.value.trim();
-  formData[key] = trimValue;
+  formData[key] = event.target.value.trim();
+
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 function returnInput() {
@@ -27,11 +27,11 @@ function sendData(event) {
   const { email, message } = form.elements;
   const trimEmail = email.value.trim();
   const trimMessage = message.value.trim();
-  if (trimEmail.value === '' || trimMessage.value === '') {
+  if (trimEmail === '' || trimMessage === '') {
     alert('Fill please all fields');
     return;
   }
+  console.log({ email: trimEmail, message: trimMessage });
   localStorage.removeItem('feedback-form-state');
-  console.log({ email: email.value, message: message.value });
   form.reset();
 }
