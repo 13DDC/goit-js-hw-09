@@ -7,7 +7,8 @@ returnInput();
 
 function handleInput(event) {
   const key = event.target.name;
-  formData[key] = event.target.value;
+  const trimValue = event.target.value.trim();
+  formData[key] = trimValue;
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 function returnInput() {
